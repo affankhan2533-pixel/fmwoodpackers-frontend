@@ -1,0 +1,42 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: 'Rajesh Mehta',
+    company: 'Mehta Engineering Works',
+    position: 'Managing Director',
+    text: 'FM Wood Packers handled our complete factory relocation packaging. Their attention to detail and professional approach ensured zero damage to our expensive CNC machinery. Highly recommended for industrial packaging.',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Priya Sharma',
+    company: 'GlobalTech Exports Pvt Ltd',
+    position: 'Export Manager',
+    text: 'We have been using FM Wood Packers for our export packaging needs for over 3 years. Their ISPM-15 certified packaging has never caused us any issues at customs. Reliable and professional service every time.',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Amit Patel',
+    company: 'Patel Automotive Components',
+    position: 'Supply Chain Head',
+    text: 'The quality of wooden pallets we receive from FM Wood Packers is consistently excellent. They understand our automotive supply chain requirements and deliver on time, every time.',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Sarah Johnson',
+    company: 'PharmaPack International',
+    position: 'Logistics Director',
+    text: 'When we needed specialized packaging for our medical equipment exports, FM Wood Packers designed custom solutions that exceeded our expectations. Their team is knowledgeable and responsive.',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Vikram Singh',
+    company: 'Singh Heavy Industries',
+    position: 'Operations Manager',
+    text: 'FM Wood Packers safely packed and shipped our 15-ton industrial turbine to the Middle East. Their expertise in heavy machinery packing is unmatched. Outstanding service and communication throughout.',
+    rating: 5,
+  },
+];
