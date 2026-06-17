@@ -70,7 +70,7 @@ export default function Gallery() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-8 py-4.5 rounded-sm text-xs md:text-sm font-black uppercase tracking-widest transition-all duration-300 border-3 ${
+                className={`px-8 py-3.5 rounded-sm text-xs md:text-sm font-black uppercase tracking-widest transition-all duration-300 border-2 border-solid ${
                   activeCategory === category
                     ? 'bg-wood text-white border-wood-dark shadow-lg scale-105'
                     : 'bg-white text-charcoal border-gray-200 hover:border-wood/40 hover:text-wood hover:-translate-y-1'

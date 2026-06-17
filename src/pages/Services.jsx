@@ -100,7 +100,7 @@ export default function Services() {
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="px-8 py-4.5 bg-white text-charcoal font-black text-xs md:text-sm uppercase tracking-widest rounded-sm shadow-md hover:shadow-lg hover:border-wood hover:text-wood hover:-translate-y-1 transition-all duration-300 border-3 border-gray-200"
+                className="px-8 py-3.5 bg-white text-charcoal font-black text-xs md:text-sm uppercase tracking-widest rounded-sm shadow-md hover:shadow-lg hover:border-wood hover:text-wood hover:-translate-y-1 transition-all duration-300 border-2 border-solid border-gray-200"
               >
                 {service.title}
               </a>

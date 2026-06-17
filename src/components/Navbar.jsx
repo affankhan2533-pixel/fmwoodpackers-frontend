@@ -45,7 +45,7 @@ export default function Navbar() {
   const linkTextClasses = (path) => {
     const isActive = location.pathname === path;
     if (isActive) return 'text-gold';
-    
+
     if (isScrolled) {
       return 'text-charcoal/70 hover:text-gold';
     } else {
@@ -58,13 +58,12 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
-      <div className={`text-xs py-2.5 hidden md:block transition-all duration-300 ${
-        isScrolled 
-          ? 'h-0 py-0 overflow-hidden opacity-0' 
-          : isDarkHeroPage 
-            ? 'bg-charcoal-dark/20 text-white/60 border-b border-white/5' 
+      <div className={`text-xs py-2.5 hidden md:block transition-all duration-300 ${isScrolled
+          ? 'h-0 py-0 overflow-hidden opacity-0'
+          : isDarkHeroPage
+            ? 'bg-charcoal-dark/20 text-white/60 border-b border-white/5'
             : 'bg-gray-50 text-charcoal/60 border-b border-gray-100'
-      }`}>
+        }`}>
         <div className="container-custom flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-gold transition-colors font-semibold">
@@ -88,9 +87,7 @@ export default function Navbar() {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center shadow-md group-hover:shadow-primary/30 transition-all duration-300">
-              <span className="text-gold font-heading font-black text-base">FM</span>
-            </div>
+            <img src="/logo.png?v=2" alt="FM Wood Packers Logo" className="w-10 h-10 object-cover rounded shadow-md group-hover:shadow-primary/30 transition-all duration-300" />
             <div className="flex flex-col">
               <span className={`font-heading font-extrabold text-base leading-tight tracking-tight transition-colors duration-300 ${logoTextClasses}`}>
                 FM Wood Packers
@@ -131,9 +128,8 @@ export default function Navbar() {
             </Link>
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className={`lg:hidden p-2 transition-colors ${
-                isScrolled ? 'text-charcoal' : isDarkHeroPage ? 'text-white' : 'text-charcoal'
-              }`}
+              className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-charcoal' : isDarkHeroPage ? 'text-white' : 'text-charcoal'
+                }`}
               aria-label="Toggle menu"
             >
               {isMobileOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
@@ -157,11 +153,10 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-colors ${
-                    location.pathname === link.path
+                  className={`px-4 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-colors ${location.pathname === link.path
                       ? 'bg-primary/5 text-primary'
                       : 'text-charcoal hover:bg-gray-50'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>

@@ -10,11 +10,11 @@ import { FiMenu, FiX } from 'react-icons/fi';
 
 /* ── helpers ────────────────────────────────────────────────────── */
 const STATUS_COLORS = {
-  pending:   'bg-yellow-500/15 text-yellow-400 border-yellow-500/20',
-  new:       'bg-blue-500/15 text-blue-400 border-blue-500/20',
-  reviewed:  'bg-purple-500/15 text-purple-400 border-purple-500/20',
-  read:      'bg-purple-500/15 text-purple-400 border-purple-500/20',
-  quoted:    'bg-green-500/15 text-green-400 border-green-500/20',
+  pending: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/20',
+  new: 'bg-blue-500/15 text-blue-400 border-blue-500/20',
+  reviewed: 'bg-purple-500/15 text-purple-400 border-purple-500/20',
+  read: 'bg-purple-500/15 text-purple-400 border-purple-500/20',
+  quoted: 'bg-green-500/15 text-green-400 border-green-500/20',
   completed: 'bg-gray-500/15 text-gray-400 border-gray-500/20',
   responded: 'bg-green-500/15 text-green-400 border-green-500/20',
 };
@@ -26,15 +26,15 @@ const fmtFull = (d) => new Date(d).toLocaleString('en-IN', { day: '2-digit', mon
 
 /* ── component ──────────────────────────────────────────────────── */
 export default function AdminDashboard() {
-  const navigate  = useNavigate();
-  const [tab,     setTab]     = useState('dashboard');
-  const [stats,   setStats]   = useState(null);
-  const [quotes,  setQuotes]  = useState([]);
-  const [contacts,setContacts]= useState([]);
+  const navigate = useNavigate();
+  const [tab, setTab] = useState('dashboard');
+  const [stats, setStats] = useState(null);
+  const [quotes, setQuotes] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search,  setSearch]  = useState('');
+  const [search, setSearch] = useState('');
   const [sidebar, setSidebar] = useState(false);
-  const [expanded,setExpanded]= useState(null); // expanded row id
+  const [expanded, setExpanded] = useState(null); // expanded row id
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -70,15 +70,15 @@ export default function AdminDashboard() {
 
   const updateStatus = async (type, id, status) => {
     await axios.patch(`/api/${type}/${id}/status`, { status });
-    if (type === 'quotes')   setQuotes(prev  => prev.map(x => x._id === id ? { ...x, status } : x));
-    else                     setContacts(prev => prev.map(x => x._id === id ? { ...x, status } : x));
+    if (type === 'quotes') setQuotes(prev => prev.map(x => x._id === id ? { ...x, status } : x));
+    else setContacts(prev => prev.map(x => x._id === id ? { ...x, status } : x));
   };
 
   const del = async (type, id) => {
     if (!window.confirm('Delete this record permanently?')) return;
     await axios.delete(`/api/${type}/${id}`);
-    if (type === 'quotes')   setQuotes(prev  => prev.filter(x => x._id !== id));
-    else                     setContacts(prev => prev.filter(x => x._id !== id));
+    if (type === 'quotes') setQuotes(prev => prev.filter(x => x._id !== id));
+    else setContacts(prev => prev.filter(x => x._id !== id));
     fetchAll();
   };
 
@@ -91,9 +91,9 @@ export default function AdminDashboard() {
 
   /* ── nav items ── */
   const NAV = [
-    { id: 'dashboard', label: 'Dashboard',         icon: FaChartBar,      badge: null },
-    { id: 'quotes',    label: 'Quote Requests',    icon: FaClipboardList, badge: stats?.pendingQuotes },
-    { id: 'contacts',  label: 'Contact Enquiries', icon: FaUsers,         badge: stats?.newContacts },
+    { id: 'dashboard', label: 'Dashboard', icon: FaChartBar, badge: null },
+    { id: 'quotes', label: 'Quote Requests', icon: FaClipboardList, badge: stats?.pendingQuotes },
+    { id: 'contacts', label: 'Contact Enquiries', icon: FaUsers, badge: stats?.newContacts },
   ];
 
   /* ── Sidebar ── */
@@ -106,9 +106,7 @@ export default function AdminDashboard() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-white/5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-            <span className="font-heading font-black text-accent text-xs">FM</span>
-          </div>
+          <img src="/logo.png?v=2" alt="FM Wood Packers Logo" className="w-8 h-8 object-cover rounded-sm" />
           <div>
             <p className="font-heading font-bold text-white text-sm">FM Wood Packers</p>
             <p className="text-[9px] uppercase tracking-[0.18em] text-accent font-bold">Admin Panel</p>
@@ -123,11 +121,10 @@ export default function AdminDashboard() {
       <nav className="flex-1 px-3 py-4 space-y-1">
         {NAV.map(({ id, label, icon: Icon, badge }) => (
           <button key={id} onClick={() => { setTab(id); setSidebar(false); }}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm text-[13px] font-bold transition-all duration-200 ${
-              tab === id
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm text-[13px] font-bold transition-all duration-200 ${tab === id
                 ? 'bg-primary text-white'
                 : 'text-white/40 hover:bg-white/5 hover:text-white'
-            }`}>
+              }`}>
             <Icon className="w-4 h-4 shrink-0" />
             <span className="flex-1 text-left">{label}</span>
             {badge > 0 && (
@@ -214,10 +211,10 @@ export default function AdminDashboard() {
               {/* Stat cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { label: 'Total Quotes',    value: stats?.totalQuotes   || 0, color: 'text-blue-400',   bg: 'bg-blue-500/10',   icon: FaClipboardList },
-                  { label: 'Pending Quotes',  value: stats?.pendingQuotes || 0, color: 'text-yellow-400', bg: 'bg-yellow-500/10', icon: FaClipboardList },
-                  { label: 'Total Contacts',  value: stats?.totalContacts || 0, color: 'text-green-400',  bg: 'bg-green-500/10',  icon: FaUsers },
-                  { label: 'New Contacts',    value: stats?.newContacts   || 0, color: 'text-accent',     bg: 'bg-accent/10',     icon: FaEnvelope },
+                  { label: 'Total Quotes', value: stats?.totalQuotes || 0, color: 'text-blue-400', bg: 'bg-blue-500/10', icon: FaClipboardList },
+                  { label: 'Pending Quotes', value: stats?.pendingQuotes || 0, color: 'text-yellow-400', bg: 'bg-yellow-500/10', icon: FaClipboardList },
+                  { label: 'Total Contacts', value: stats?.totalContacts || 0, color: 'text-green-400', bg: 'bg-green-500/10', icon: FaUsers },
+                  { label: 'New Contacts', value: stats?.newContacts || 0, color: 'text-accent', bg: 'bg-accent/10', icon: FaEnvelope },
                 ].map((s, i) => (
                   <div key={i} className="bg-[#111827] border border-white/5 rounded-sm p-5">
                     <div className={`w-10 h-10 ${s.bg} rounded-sm flex items-center justify-center mb-4`}>
@@ -305,7 +302,7 @@ export default function AdminDashboard() {
                       {fQ.map(q => (
                         <>
                           <tr key={q._id} className="hover:bg-white/3 transition-colors cursor-pointer"
-                              onClick={() => setExpanded(expanded === q._id ? null : q._id)}>
+                            onClick={() => setExpanded(expanded === q._id ? null : q._id)}>
                             <td className="px-5 py-4">
                               <p className="font-semibold text-white">{q.name}</p>
                               {q.companyName && <p className="text-white/35 text-[11px] flex items-center gap-1 mt-0.5"><FaBuilding className="w-2.5 h-2.5" />{q.companyName}</p>}

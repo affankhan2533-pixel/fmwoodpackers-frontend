@@ -30,9 +30,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-                <span className="text-gold font-heading font-black text-base">FM</span>
-              </div>
+              <img src="/logo.png?v=2" alt="FM Wood Packers Logo" className="w-10 h-10 object-cover rounded shadow-md" />
               <div>
                 <h3 className="font-heading font-bold text-white text-base leading-tight">FM Wood Packers</h3>
                 <span className="text-[9px] uppercase tracking-[0.25em] text-gold font-bold">Premium Packaging</span>

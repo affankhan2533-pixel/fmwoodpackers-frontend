@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   /* ── input style ── */
-  const inp = `w-full bg-[#F8F9FA] border border-gray-200 rounded-sm px-5 py-4 text-[15px]
+  const inp = `w-full bg-[#F8F9FA] border border-solid border-gray-300 rounded-sm px-5 py-4 text-[15px]
                text-charcoal-dark placeholder-gray-400 outline-none
                focus:border-accent focus:bg-white focus:ring-2 focus:ring-accent/15
                transition-all duration-250 font-body`;
@@ -193,7 +193,7 @@ export default function Contact() {
               <div className="border border-gray-100 rounded-sm shadow-[0_4px_40px_rgba(0,0,0,0.07)] overflow-hidden">
 
                 {/* Form header */}
-                <div className="bg-[#1F2937] px-8 py-7">
+                <div className="bg-[#1F2937] px-8 md:px-10 py-7">
                   <h3 className="font-heading font-bold text-white text-xl mb-1">Send Us a Message</h3>
                   <p className="text-white/40 text-[13px]">We reply within 2 business hours — guaranteed.</p>
                 </div>
@@ -210,7 +210,7 @@ export default function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 space-y-7">
+                  <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 space-y-6">
 
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>

@@ -5,11 +5,11 @@ import { FiEye, FiEyeOff, FiLock, FiMail } from 'react-icons/fi';
 import { FaShieldAlt } from 'react-icons/fa';
 
 export default function AdminLogin() {
-  const [email,    setEmail]    = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPw,   setShowPw]   = useState(false);
-  const [error,    setError]    = useState('');
-  const [loading,  setLoading]  = useState(false);
+  const [showPw, setShowPw] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -42,9 +42,7 @@ export default function AdminLogin() {
 
         {/* Logo */}
         <div className="flex items-center gap-4 relative z-10">
-          <div className="w-11 h-11 bg-primary rounded-sm flex items-center justify-center">
-            <span className="font-heading font-black text-accent text-lg">FM</span>
-          </div>
+          <img src="/logo.png?v=2" alt="FM Wood Packers Logo" className="w-11 h-11 object-cover rounded-sm" />
           <div>
             <p className="font-heading font-bold text-white text-base">FM Wood Packers</p>
             <p className="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">Admin Portal</p>
@@ -64,10 +62,10 @@ export default function AdminLogin() {
 
           <div className="mt-10 grid grid-cols-2 gap-4">
             {[
-              { label: 'Quote Requests',    val: 'Live' },
+              { label: 'Quote Requests', val: 'Live' },
               { label: 'Contact Enquiries', val: 'Live' },
-              { label: 'Status Tracking',   val: 'Yes' },
-              { label: 'Email Alerts',       val: 'Active' },
+              { label: 'Status Tracking', val: 'Yes' },
+              { label: 'Email Alerts', val: 'Active' },
             ].map((s, i) => (
               <div key={i} className="bg-white/5 border border-white/8 rounded-sm p-4">
                 <p className="text-[10px] uppercase tracking-[0.15em] text-white/30 font-bold">{s.label}</p>
@@ -92,9 +90,7 @@ export default function AdminLogin() {
 
           {/* Mobile logo */}
           <div className="flex items-center gap-3 mb-10 lg:hidden">
-            <div className="w-10 h-10 bg-primary rounded-sm flex items-center justify-center">
-              <span className="font-heading font-black text-accent">FM</span>
-            </div>
+            <img src="/logo.png?v=2" alt="FM Wood Packers Logo" className="w-10 h-10 object-cover rounded-sm" />
             <div>
               <p className="font-heading font-bold text-white text-sm">FM Wood Packers</p>
               <p className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">Admin Portal</p>
